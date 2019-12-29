@@ -33,4 +33,8 @@ for op in (:+, :-, :*, :/)
     end
 end
 
+function Base.:(==)(a::Hex, b::Hex)::Bool
+    a.q == b.q && a.r == b.r && a.s == b.s
+end
+
 # module HexGrids
