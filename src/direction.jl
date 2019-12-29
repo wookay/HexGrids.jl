@@ -39,6 +39,10 @@ function Base.getproperty(T::Type{Direction}, s::Symbol)
     end
 end
 
+function neighbor_at(hex::Hex, direction::Direction, coordinateSystem::CoordinateSystem)::Hex
+    neighbor_at(hex, direction.index, coordinateSystem)
+end
+
 module Pointed
 using ..HexGrids: Direction
 const northWest = Direction.one

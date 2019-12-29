@@ -4,7 +4,11 @@ struct Hex{T}
     q::T
     r::T
     s::T
-    function Hex(; q::T, r::T, s::T) where T
+    function Hex(; q, r, s)
+        (q1, r1, s1) = promote(q, r, s)
+        new{eltype(q1)}(q1, r1, s1)
+    end
+    function Hex{T}(; q::T, r::T, s::T) where T
         new{T}(q, r, s)
     end
 end
